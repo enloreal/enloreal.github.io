@@ -29,3 +29,40 @@
     margin-top: 50px;
     margin-bottom: 80px;
 }
+
+.searchInput {
+    background-color:rgba(240, 248, 255, 0.301);
+    width: 450px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px;
+    border: none;
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.searchInput:focus {
+    background-color:rgba(240, 248, 255, 0.377);
+    border: none;
+}
+
+.searchInput:hover {
+    background-color:rgba(240, 248, 255, 0.356);
+}
+
+.scrollButton {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.048);
+    color: rgba(0, 0, 0, 0.205);
+    border: none;
+    position: fixed; bottom: 20px; right: 20px; z-Index: 1000;
+}
+
+.scrollButton:hover {
+    background-color: #4646465e;
+    color: #141414;
+}
