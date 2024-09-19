@@ -1,6 +1,15 @@
+@font-face {
+    font-family: 'go3v2';
+    src: local('MyFont'), url(../fonts/go3v2.ttf) format('woff');
+}
+
 html {
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(52,88,130,1) 100%);
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+}
+
+* {
+    font-family: go3v2;
 }
