@@ -1,0 +1,30 @@
+.page {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    color:rgb(41, 41, 41);
+    position: relative;
+}
+
+.btns {
+    font-size: 30px;
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px;
+    color: aliceblue;
+    cursor: pointer;
+    background-color: #2b2d2e;
+}
+
+.btns:hover {
+    background-color: #404344;  
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
