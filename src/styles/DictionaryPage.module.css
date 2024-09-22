@@ -13,6 +13,9 @@
 .exit {
     font-size: 30px;
     padding: 10px;
+    margin: 40px 0px 40px 0px;
+    text-decoration: none;
+    text-align: center;
     width: 300px;
     border-radius: 20px;
     color: aliceblue;
@@ -25,10 +28,6 @@
     background-color: #404344;  
 }
 
-.exitFix {
-    margin-top: 50px;
-    margin-bottom: 80px;
-}
 
 .searchInput {
     background-color:rgba(240, 248, 255, 0.301);

@@ -7,7 +7,7 @@ function HelpPage() {
     <div className={styles.page}>
       <h1>Help</h1>
       <p>This page will contain help information in the future.</p>
-      <Link to="/"><button className={styles.btn}>Back to the main page</button></Link>
+      <Link to="/" aria-label="Exit" className={styles.btn}>Back to the main page</Link>
     </div>
   );
 }

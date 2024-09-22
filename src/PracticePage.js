@@ -4,7 +4,7 @@ import WordDisplay from './components/WordDisplay';
 import UserInputForm from './components/UserInputForm';
 import Feedback from './components/Feedback';
 import { words } from './components/Words';
-import styles from './styles/PracticePage.module.css'
+import styles from './styles/PracticePage.module.css';
 
 function PracticePage() {
   const [currentWord, setCurrentWord] = useState(null);
@@ -14,6 +14,8 @@ function PracticePage() {
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [isNextWordReady, setIsNextWordReady] = useState(false);
   const [streak, setStreak] = useState(0);
+
+
 
   useEffect(() => {
     setNewWord();
@@ -31,6 +33,12 @@ function PracticePage() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (!userInput.trim()) {
+      setFeedback('Please enter a pronunciation.');
+      setIsInputDisabled(false);
+      return;
+    }
+
     if (isNextWordReady) {
       setIsNextWordReady(false);
       setUserInput('');
@@ -41,7 +49,11 @@ function PracticePage() {
     } else {
       setIsInputDisabled(true);
 
-      if (userInput === currentWord.pronunciation) {
+
+      const normalizedUserInput = userInput.trim();
+      const normalizedCorrectPronunciation = currentWord.pronunciation.trim();
+
+      if (normalizedUserInput === normalizedCorrectPronunciation) {
         setFeedback('Correct!');
         setCorrectAnswer('');
         setStreak(streak + 1);
@@ -72,7 +84,7 @@ function PracticePage() {
           <Feedback feedback={feedback} correctAnswer={correctAnswer} />
         </>
       )}
-      <Link to="/" className={styles.exitFix}><button className={styles.exit}>Exit</button></Link>
+      <Link to="/" aria-label="Exit" className={styles.exit}>Exit</Link>
     </div>
   );
 }

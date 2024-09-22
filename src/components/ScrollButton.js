@@ -4,7 +4,6 @@ import styles from '../styles/DictionaryPage.module.css';
 const ScrollButton = () => {
   const [isAtBottom, setIsAtBottom] = useState(false);
 
-  // Check if the user is at the bottom of the page
   const checkScrollBottom = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       setIsAtBottom(true);
@@ -13,7 +12,6 @@ const ScrollButton = () => {
     }
   };
 
-  // Scroll to Top or Bottom
   const scrollTo = () => {
     if (isAtBottom) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

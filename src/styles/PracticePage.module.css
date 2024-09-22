@@ -27,8 +27,12 @@
 }
 
 .exit {
+    position: absolute;
     font-size: 30px;
     padding: 10px;
+    margin: 820px 0px 40px 0px;
+    text-decoration: none;
+    text-align: center;
     width: 300px;
     border-radius: 20px;
     color: aliceblue;
@@ -41,11 +45,6 @@
     background-color: #404344;  
 }
 
-.exitFix {
-    position: absolute;
-    margin-top: 850px;
-    margin-bottom: 80px;
-}
 
 .form {
     margin-top: 20px;

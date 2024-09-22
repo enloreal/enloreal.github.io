@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as wanakana from 'wanakana';
-import styles from '../styles/PracticePage.module.css'
+import styles from '../styles/PracticePage.module.css';
 
 const UserInputForm = ({
   userInput,
@@ -9,9 +9,19 @@ const UserInputForm = ({
   isNextWordReady,
   isInputDisabled
 }) => {
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (isNextWordReady) {
+      buttonRef.current.focus();
+    } else if (!isInputDisabled) {
+      inputRef.current.focus();
+    }
+  }, [isNextWordReady, isInputDisabled]);
+
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    // Convert romaji input to Hiragana using wanakana
     const hiraganaInput = wanakana.toHiragana(inputValue, { customKanaMapping: { nn: 'ん', n: 'n' } });
     onInputChange(hiraganaInput);
   };
@@ -25,10 +35,14 @@ const UserInputForm = ({
         onChange={handleInputChange}
         disabled={isInputDisabled}
         placeholder="Enter pronunciation"
+        ref={inputRef}
       />
       <button 
         className={styles.btn}
-        type="submit">
+        aria-label="Submit answer"
+        type="submit"
+        ref={buttonRef}
+      >
         {isNextWordReady ? 'Next Word' : 'Submit'}
       </button>
     </form>

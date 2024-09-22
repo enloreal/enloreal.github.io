@@ -27,7 +27,6 @@ function DictionaryPage() {
         onChange={(e) => setSearchQuery(e.target.value)}
         className={styles.searchInput}
       />
-      {/* Render filtered words */}
       {filteredWords.length > 0 ? (
         filteredWords.map((word, index) => (
           <li key={index}>
@@ -35,9 +34,9 @@ function DictionaryPage() {
           </li>
         ))
       ) : (
-        <p>No words found 🥺</p> // Display a message if no words match the search query
+        <p>No words found 🥺</p>
       )}
-      <Link to="/" className={styles.exitFix}><button className={styles.exit}>Exit</button></Link>
+      <Link to="/" aria-label="Exit" className={styles.exit}>Exit</Link>
       <ScrollButton /> 
     </div>
   );

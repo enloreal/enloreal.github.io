@@ -8,9 +8,9 @@ function MainPage() {
     <div className={styles.page}>
       <h1 >Main Menu</h1>
       <nav className={styles.nav}>
-          <Link to="/practice" ><button className={styles.btns}>Practice</button></Link>
-          <Link to="/dictionary" ><button className={styles.btns}>Dictionary</button></Link>
-          <Link to="/help" ><button className={styles.btns}>Help</button></Link>
+        <Link to="/practice" aria-label="Practice page" className={styles.btns}>Practice</Link>
+        <Link to="/dictionary" aria-label="Dictionary page" className={styles.btns}>Dictionary</Link>
+        <Link to="/help" aria-label="Help page" className={styles.btns}>Help</Link>
       </nav>
     </div>
   );
