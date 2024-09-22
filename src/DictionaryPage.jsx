@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { words } from './components/Words';
-import styles from './styles/DictionaryPage.module.css'
 import ScrollButton from './components/ScrollButton';
+import styles from './styles/DictionaryPage.module.css'
 
 function DictionaryPage() {
   // State to keep track of user search input

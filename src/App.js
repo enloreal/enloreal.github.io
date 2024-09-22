@@ -4,7 +4,7 @@ import MainPage from './MainPage';
 import PracticePage from './PracticePage';
 import DictionaryPage from './DictionaryPage';
 import HelpPage from './HelpPage';
-import './styles/generalStyles.css'
+import './styles/GeneralStyles.css'
 
 function App() {
   return (

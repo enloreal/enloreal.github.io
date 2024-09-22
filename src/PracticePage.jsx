@@ -30,8 +30,8 @@ function PracticePage() {
     setUserInput(newInput);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     if (!userInput.trim()) {
       setFeedback('Please enter a pronunciation.');
