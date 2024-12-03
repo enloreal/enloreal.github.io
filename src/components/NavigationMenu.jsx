@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from '../styles/NavigationMenu.module.css';
 
 function NavigationMenu() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const location = useLocation();
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -13,8 +12,6 @@ function NavigationMenu() {
   const handleMouseLeave = () => {
     setIsOpen(false);
   };
-
-  const isActive = (path) => location.pathname === path;
 
   return (
     <nav
@@ -25,27 +22,27 @@ function NavigationMenu() {
       <div className={styles.menuHeader}>Menu</div>
       <ul className={styles.menuList}>
         <li>
-          <NavLink to="/" className={isActive('/') ? styles.active : styles.link}>
+          <NavLink exact to="/" activeClassName={styles.active} className={styles.link}>
             Main
           </NavLink>
         </li>
         <li>
-          <NavLink to="/practice" className={isActive('/practice') ? styles.active : styles.link}>
+          <NavLink to="/practice" activeClassName={styles.active} className={styles.link}>
             Practice
           </NavLink>
         </li>
         <li>
-          <NavLink to="/dictionary" className={isActive('/dictionary') ? styles.active : styles.link}>
+          <NavLink to="/dictionary" activeClassName={styles.active} className={styles.link}>
             Dictionary
           </NavLink>
         </li>
         <li>
-          <NavLink to="/help" className={isActive('/help') ? styles.active : styles.link}>
+          <NavLink to="/help" activeClassName={styles.active} className={styles.link}>
             Help
           </NavLink>
         </li>
         <li>
-          <NavLink to="/protected" className={isActive('/protected') ? styles.active : styles.link}>
+          <NavLink to="/protected" activeClassName={styles.active} className={styles.link}>
             Profile
           </NavLink>
         </li>

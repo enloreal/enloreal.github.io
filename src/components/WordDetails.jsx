@@ -1,9 +1,9 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from '../styles/DictionaryPage.module.css';
 
-function WordDetails({ words }) {
-  const { word } = useParams();
+function WordDetails({ words, match }) {
+  const { word } = match.params;
 
   const currentWord = words.find(w => w.word === word);
 

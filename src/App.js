@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import MainPage from './MainPage';
 import PracticePage from './PracticePage';
 import DictionaryPage from './DictionaryPage';
@@ -30,22 +30,36 @@ function App() {
 }
 
 function AppContent({ isLoggedIn, handleLogin, handleLogout }) {
-
   return (
     <>
-      {<NavigationMenu />}
-      <Routes>
-        <Route path="/" element={<MainPage isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleLogout={handleLogout} />} />
-        <Route path="/practice" element={<PracticePage />} />
-        <Route path="/dictionary" element={<DictionaryPage words={words} />} />
-        <Route path="/dictionary/:word" element={<WordDetails words={words} />} />
-        <Route path="/help" element={<HelpPage />} />
+      <NavigationMenu />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <MainPage {...props} isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleLogout={handleLogout} />
+          )}
+        />
+        <Route path="/practice" component={PracticePage} />
+        <Route
+          exact
+          path="/dictionary"
+          render={(props) => <DictionaryPage {...props} words={words} />}
+        />
+        <Route
+          path="/dictionary/:word"
+          render={(props) => <WordDetails {...props} words={words} />}
+        />
+        <Route path="/help" component={HelpPage} />
         <Route
           path="/protected"
-          element={isLoggedIn ? <ProtectedPage /> : <Navigate to="/" />}
+          render={() =>
+            isLoggedIn ? <ProtectedPage /> : <Redirect to="/" />
+          }
         />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Route component={NotFound} />
+      </Switch>
     </>
   );
 }
