@@ -1,0 +1,81 @@
+.page {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 900;
+    color:rgb(41, 41, 41);
+    list-style-type: none;
+    text-shadow: 3px 5px 7px rgba(0,0,0,0.34);
+}
+
+.exit {
+    font-size: 30px;
+    padding: 10px;
+    margin: 40px 0px 40px 0px;
+    text-decoration: none;
+    text-align: center;
+    width: 300px;
+    border-radius: 20px;
+    color: aliceblue;
+    cursor: pointer;
+    background-color: #2b2d2e;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.exit:hover {
+    background-color: #404344;  
+}
+
+
+.searchInput {
+    background-color:rgba(240, 248, 255, 0.301);
+    width: 450px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px;
+    border: none;
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.searchInput:focus {
+    background-color:rgba(240, 248, 255, 0.377);
+    border: none;
+}
+
+.searchInput:hover {
+    background-color:rgba(240, 248, 255, 0.356);
+}
+
+.scrollButton {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.048);
+    color: rgba(0, 0, 0, 0.205);
+    border: none;
+    position: fixed; bottom: 20px; right: 20px; z-Index: 1000;
+}
+
+.scrollButton:hover {
+    background-color: #4646465e;
+    color: #141414;
+}
+
+.btn {
+    margin-top: 50px;
+    font-size: 22px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: aliceblue;
+    cursor: pointer;
+    background-color: #2b2d2e;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
