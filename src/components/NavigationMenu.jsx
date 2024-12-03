@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from '../styles/NavigationMenu.module.css';
 
 function NavigationMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const location = useLocation();
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -12,6 +13,8 @@ function NavigationMenu() {
   const handleMouseLeave = () => {
     setIsOpen(false);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav
@@ -22,27 +25,27 @@ function NavigationMenu() {
       <div className={styles.menuHeader}>Menu</div>
       <ul className={styles.menuList}>
         <li>
-          <NavLink to="/" className={({ isActive }) => isActive ? styles.active : styles.link}>
+          <NavLink to="/" className={isActive('/') ? styles.active : styles.link}>
             Main
           </NavLink>
         </li>
         <li>
-          <NavLink to="/practice" className={({ isActive }) => isActive ? styles.active : styles.link}>
+          <NavLink to="/practice" className={isActive('/practice') ? styles.active : styles.link}>
             Practice
           </NavLink>
         </li>
         <li>
-          <NavLink to="/dictionary" className={({ isActive }) => isActive ? styles.active : styles.link}>
+          <NavLink to="/dictionary" className={isActive('/dictionary') ? styles.active : styles.link}>
             Dictionary
           </NavLink>
         </li>
         <li>
-          <NavLink to="/help" className={({ isActive }) => isActive ? styles.active : styles.link}>
+          <NavLink to="/help" className={isActive('/help') ? styles.active : styles.link}>
             Help
           </NavLink>
         </li>
         <li>
-          <NavLink to="/protected" className={({ isActive }) => isActive ? styles.active : styles.link}>
+          <NavLink to="/protected" className={isActive('/protected') ? styles.active : styles.link}>
             Profile
           </NavLink>
         </li>
