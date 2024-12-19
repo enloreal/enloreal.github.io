@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import WordDisplay from './components/WordDisplay';
 import UserInputForm from './components/UserInputForm';
 import Feedback from './components/Feedback';
-import { words } from './components/Words';
 import styles from './styles/PracticePage.module.css';
+import { fetchRandomWord } from './api/wordsApi'
 
 function PracticePage() {
   const [currentWord, setCurrentWord] = useState(null);
@@ -16,14 +16,20 @@ function PracticePage() {
   const [streak, setStreak] = useState(0);
 
 
-
   useEffect(() => {
+    
+    console.log()
     setNewWord();
   }, []);
 
-  const setNewWord = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    setCurrentWord(words[randomIndex]);
+  const setNewWord = async () => {
+    const data = await fetchRandomWord();
+    setCurrentWord({
+      word: data.word,
+      pronunciation: data.furigana,
+      translation: data.meaning,
+      romaji: data.romaji
+    });
   };
 
   const handleInputChange = (newInput) => {
@@ -53,18 +59,30 @@ function PracticePage() {
       const normalizedUserInput = userInput.trim();
       const normalizedCorrectPronunciation = currentWord.pronunciation.trim();
 
-      if (normalizedUserInput === normalizedCorrectPronunciation) {
+      if (normalizedUserInput === (normalizedCorrectPronunciation? normalizedCorrectPronunciation : currentWord.word)) {
         setFeedback('Correct!');
         setCorrectAnswer('');
         setStreak(streak + 1);
       } else {
         setFeedback('Incorrect.');
-        setCorrectAnswer(`The correct answer is: ${currentWord.pronunciation}`);
+        setCorrectAnswer(`The correct answer is: ${!currentWord.pronunciation? currentWord.word : currentWord.pronunciation}`);
         setStreak(0);
-      }
+      } 
 
       setIsNextWordReady(true);
     }
+  };
+
+  const handleSkip = (e) => {
+    e.preventDefault(); 
+    setUserInput('');
+    setStreak(0);
+    
+    setNewWord();
+    
+    setIsInputDisabled(false);
+    setFeedback('');
+    setCorrectAnswer('');
   };
 
   return (
@@ -78,6 +96,7 @@ function PracticePage() {
             userInput={userInput}
             onInputChange={handleInputChange}
             onSubmit={handleSubmit}
+            onSkip={handleSkip}
             isNextWordReady={isNextWordReady}
             isInputDisabled={isInputDisabled}
           />

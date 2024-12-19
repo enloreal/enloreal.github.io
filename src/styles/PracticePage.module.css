@@ -26,6 +26,23 @@
     font-size: 90px;
 }
 
+.changeBtn {
+    background-color: rgba(255, 255, 255, 0.429);
+    opacity: 0.3;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 375px;
+    border: none;
+    font-size: 20px;
+    color: aliceblue;
+    position: absolute;
+}
+
+.changeBtn:hover {
+    opacity: 0.8;
+}
+
 .exit {
     position: absolute;
     font-size: 30px;

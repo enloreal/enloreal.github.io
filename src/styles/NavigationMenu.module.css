@@ -1,0 +1,65 @@
+.navMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    z-index: 10;
+    overflow: hidden;
+    transition: height 1s ease, width 1s ease, opacity 1s, border-radius 1s; 
+    opacity: 0.7;
+    font-size: 20px;
+    background-color: #333;
+    border-radius: 0% 0% 65% 0%;
+  }
+  
+  .navMenu.open {
+    width: 200px;
+    height: 400px;
+    opacity: 1;
+    border-radius: 0% 0% 15% 0%;
+  }
+  
+  .menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+  }
+  
+  .navMenu.open .menuList {
+    opacity: 1;
+  }
+  
+  .menuHeader { 
+    writing-mode: vertical-rl;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.5s ease; 
+  
+  }
+  
+  .navMenu.open .menuHeader {
+    transform: rotate(-90deg);
+  }
+  
+  .link {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .active {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+    white-space: nowrap;
+  }
